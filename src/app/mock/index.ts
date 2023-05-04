@@ -10,10 +10,18 @@ export const data = {
     {
       id: '2',
       label: 'test2',
-      value: 'test2',
+      value: {label: 'test2', value: '1'},
       fieldName: 'test2',
       fieldType: 'option',
-      dataSet: [{label: 'test2', value: 'test2'}, {label: 'test3', value: 'test3'}]
+      dataSet: [{label: 'test1', value: '1'}, {label: 'test2', value: '2'}]
+    },
+    {
+      id: '3',
+      label: 'test3',
+      value: [{label: 'test1', value: '1'}, {label: 'test2', value: '2'}],
+      fieldName: 'test3',
+      fieldType: 'option-multiple',
+      dataSet: [{label: 'test1', value: '1'}, {label: 'test2', value: '2'}]
     }
   ]
 }

@@ -11,14 +11,17 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import * as MOCKDATA from './mock';
 import {DelonMockModule} from "@delon/mock";
-
+import { SelectOptionMultipleComponent } from './dynamicComponents/select-option-multiple/select-option-multiple.component';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 @NgModule({
   declarations: [
     AppComponent,
     ViewRefDirective,
     SelectOptionComponent,
     TextComponent,
-    ViewModeComponent
+    ViewModeComponent,
+    SelectOptionMultipleComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,8 @@ import {DelonMockModule} from "@delon/mock";
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    NzSelectModule,
     DelonMockModule.forRoot({ data: MOCKDATA })
   ],
   providers: [],

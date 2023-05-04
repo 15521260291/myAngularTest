@@ -1,6 +1,6 @@
 <div class="container" style="white-space: nowrap;">
   <label class="label">{{itemData?.label}}:</label>
-  <span *ngIf="!isEdit" class="view" (click)="edit()" class="value">{{itemData?.value}}</span>
+  <span *ngIf="!isEdit" class="view" (click)="edit()" class="value">{{getValue()}}</span>
   <ng-template appViewRef></ng-template>
   <button *ngIf="isEdit" (click)="submit()">提交</button>
 </div>

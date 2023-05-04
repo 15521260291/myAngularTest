@@ -21,7 +21,6 @@ export class ViewModeComponent implements OnInit, OnChanges {
   isEdit = false;
 
 
-
   constructor(
     private getDataService: GetDataService
   ) { }
@@ -29,6 +28,20 @@ export class ViewModeComponent implements OnInit, OnChanges {
   ngOnInit(): void {
 
   }
+
+  getValue(): string{
+    const itemData = this.itemData;
+    if(itemData?.fieldType === 'text'){
+      return itemData?.value;
+    }else if(itemData?.fieldType === 'option'){
+      return itemData?.value.label;
+    }else if(itemData?.fieldType === 'option-multiple'){
+      return itemData?.value?.map((item: any) => item?.label)?.join(',');
+    }else{
+      return itemData?.value;
+    }
+  }
+
 
   submit(): void{
     this.isEdit = false;
@@ -48,7 +61,10 @@ export class ViewModeComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void{
     const idObj = changes['id'];
     if(idObj.currentValue){
-      this.itemData = this.getDataService.getData(idObj.currentValue);
+      this.getDataService.getDataById(idObj.currentValue).subscribe(res => {
+        console.log(res, '666');
+        this.itemData = res;
+      });
     }
   }
 

@@ -1,0 +1,7 @@
+<nz-select
+  nzMode="multiple"
+  [(ngModel)]="value"
+>
+  <nz-option *ngFor="let item of options" [nzLabel]="item.label" [nzValue]="item.value"></nz-option>
+</nz-select>
+

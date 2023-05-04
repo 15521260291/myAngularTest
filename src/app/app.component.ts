@@ -5,24 +5,6 @@ import {componentMap}  from "./componentMap";
 import {SelectOptionComponent} from "./dynamicComponents/select-option/select-option.component";
 import {HttpClient} from "@angular/common/http";
 
-const data = [
-  {
-    id: '1',
-    label: 'test',
-    value: 'test',
-    fieldName: 'test',
-    fieldType: 'text'
-  },
-  {
-    id: '2',
-    label: 'test2',
-    value: 'test2',
-    fieldName: 'test2',
-    fieldType: 'option',
-    dataSet: [{label: 'test2', value: 'test2'}, {label: 'test3', value: 'test3'}]
-  }
-]
-
 
 @Component({
   selector: 'app-root',
@@ -44,9 +26,9 @@ export class AppComponent implements OnInit, AfterViewInit{
   data: any = [];
 
   ngOnInit(): void{
-    this.data = data;
     this.http.get('/api/getData').subscribe(resp => {
-      console.log('11', resp);
+       this.data = resp;
+       console.log(this.data, '123');
     })
   }
 

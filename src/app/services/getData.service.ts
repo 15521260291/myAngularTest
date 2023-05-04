@@ -1,31 +1,23 @@
 import {Injectable} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
+import {map, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetDataService{
-  data = [
-    {
-      id: '1',
-      label: 'test',
-      value: 'test',
-      fieldName: 'test',
-      fieldType: 'text'
-    },
-    {
-      id: '2',
-      label: 'test2',
-      value: 'test2',
-      fieldName: 'test2',
-      fieldType: 'option',
-      dataSet: [{label: 'test2', value: 'test2'}, {label: 'test3', value: 'test3'}]
-    }
-  ]
-  constructor() {
+  constructor(private http: HttpClient) {
+  }
+  getDataById(id: string): Observable<any>{
+    return this.http.get('/api/getData').pipe(map((item: any) => {
+      return item.find((it: { id: string; }) => it.id === id);
+    }))
   }
 
-  getData(id: string): any{
-    return this.data.find(item => item.id === id);
+  getData(id: string): Observable<any>{
+    return this.http.get('/api/getData').pipe(map((item: any) => {
+     return item;
+    }))
   }
 
 }
