@@ -1,8 +1,7 @@
-import {ViewChild} from "@angular/core";
-
 export class BaseComponent{
    constructor() {
    }
+
 
    private item: any = {};
    public value:any = '';

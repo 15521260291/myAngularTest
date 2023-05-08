@@ -1,3 +1,4 @@
-<nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择"  [(ngModel)]="value" (ngModelChange)="modelChange($event)">
-  <div (click)="testClick($event)"><nz-option *ngFor="let item of options" [nzValue]="item.value" [nzLabel]="item.label"></nz-option></div>
+<nz-select #htmlComponent nzShowSearch nzAllowClear nzPlaceHolder="请选择"
+           [(ngModel)]="value" (ngModelChange)="modelChange($event)">
+  <nz-option *ngFor="let item of options" [nzValue]="item.value" [nzLabel]="item.label"></nz-option>
 </nz-select>

@@ -10,16 +10,16 @@ export class SelectOptionComponent extends BaseComponent implements OnInit {
   @ViewChild('htmlComponent', {static: true})
   htmlComponent: any = null;
 
+  selectOptionEle: any = null;
+
+
   constructor() {
     super();
   }
 
-  testClick($event: any):void{
-    console.log('冒到了')
-    $event.stopPropagation();
-  }
 
   ngOnInit(): void {
   }
+
 
 }

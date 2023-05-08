@@ -44,7 +44,6 @@ export class ViewModeComponent implements OnInit, OnChanges {
   }
 
   getValue(): string |  number  {
-    console.log(6666);
     const itemData = this.itemData;
     if(itemData?.fieldType === 'text'){
       return itemData?.value;
@@ -93,10 +92,10 @@ export class ViewModeComponent implements OnInit, OnChanges {
     this.component.instance.init(this.itemData);
 
     const callBack = (e:any) => {
-      console.log(document.activeElement, e.target.tagName, '0000')
+      // console.log(document.activeElement, e.target, e.target.classList, e.target.tagName, '0000')
       if(this.itemData.fieldType !== 'boolean'){
         // 非boolean类型需要判断失去焦点后才提交
-        if(!this.containerRef.nativeElement.contains(document.activeElement)){
+        if(!this.containerRef.nativeElement.contains(document.activeElement) && !e.target.classList.contains('ant-select-item-option-content')){
           document.removeEventListener('click', callBack);
           this.submit();
         }

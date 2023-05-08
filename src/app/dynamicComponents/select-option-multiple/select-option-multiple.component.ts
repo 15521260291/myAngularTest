@@ -1,7 +1,6 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {BaseComponent} from "../../baseComponent/baseComponent";
 import {NzSelectComponent, NzSelectSearchComponent} from "ng-zorro-antd/select";
-import { FocusMonitor } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-select-option-multiple',
@@ -15,7 +14,7 @@ export class SelectOptionMultipleComponent extends BaseComponent implements OnIn
   @ViewChild('htmlComponent', {static: true})
   select: any = null;
 
-  constructor(private focusMonitor: FocusMonitor, private render: Renderer2, private host: ElementRef<HTMLElement>,) {
+  constructor(private render: Renderer2, private host: ElementRef<HTMLElement>,) {
     super();
   }
 
