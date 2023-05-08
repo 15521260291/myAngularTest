@@ -1,6 +1,9 @@
 <nz-select
+  [nzAutoFocus]="true"
+  #htmlComponent
   nzMode="multiple"
   [(ngModel)]="value"
+  (ngModelChange)="modelChange($event)"
 >
   <nz-option *ngFor="let item of options" [nzLabel]="item.label" [nzValue]="item.value"></nz-option>
 </nz-select>

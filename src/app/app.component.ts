@@ -4,6 +4,8 @@ import {ViewRefDirective} from "./directives/view-ref.directive";
 import {componentMap}  from "./componentMap";
 import {SelectOptionComponent} from "./dynamicComponents/select-option/select-option.component";
 import {HttpClient} from "@angular/common/http";
+import {NzDrawerService} from "ng-zorro-antd/drawer";
+import {DrawerComponentComponent} from "./drawer-component/drawer-component.component";
 
 
 @Component({
@@ -14,7 +16,7 @@ import {HttpClient} from "@angular/common/http";
 export class AppComponent implements OnInit, AfterViewInit{
   title = 'my-test-app';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private drawerService: NzDrawerService) {
   }
 
   @ViewChild('ref', {static: true})
@@ -28,7 +30,6 @@ export class AppComponent implements OnInit, AfterViewInit{
   ngOnInit(): void{
     this.http.get('/api/getData').subscribe(resp => {
        this.data = resp;
-       console.log(this.data, '123');
     })
   }
 
@@ -45,6 +46,14 @@ export class AppComponent implements OnInit, AfterViewInit{
     //     this.appViewRef.viewContainerRef.createComponent(c)
     //   }
     // })
+  }
+
+  showDrawer(): void{
+    this.drawerService.create({
+      nzTitle: 'Component',
+      nzContent: DrawerComponentComponent,
+      nzWidth: '200px'
+    });
   }
 
 }

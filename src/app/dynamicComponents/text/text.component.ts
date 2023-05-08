@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {BaseComponent} from "../../baseComponent/baseComponent";
 
 @Component({
@@ -7,6 +7,8 @@ import {BaseComponent} from "../../baseComponent/baseComponent";
   styleUrls: ['./text.component.scss']
 })
 export class TextComponent extends BaseComponent implements OnInit {
+  @ViewChild('htmlComponent', {static: true})
+  htmlComponent: any = null;
 
   constructor() {
     super();

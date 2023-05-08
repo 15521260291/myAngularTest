@@ -1,3 +1,3 @@
-<select [(ngModel)]="value">
-  <option  *ngFor="let item of options" [value]="item.value">{{item.label}}</option>
-</select>
+<nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择"  [(ngModel)]="value" (ngModelChange)="modelChange($event)">
+  <div (click)="testClick($event)"><nz-option *ngFor="let item of options" [nzValue]="item.value" [nzLabel]="item.label"></nz-option></div>
+</nz-select>

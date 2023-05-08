@@ -1,6 +1,25 @@
-<div class="container" style="white-space: nowrap;">
-  <label class="label">{{itemData?.label}}:</label>
-  <span *ngIf="!isEdit" class="view" (click)="edit()" class="value">{{getValue()}}</span>
+<div class="container"  tabindex="2" #container style="white-space: nowrap; height: 32px; line-height: 32px;">
+  <label class="label" style="margin-right: 12px; width: 100px; text-align: right;">{{itemData?.label}}:</label>
+  <!--  显示数据-->
+  <div (click)="edit();" style="box-sizing: border-box; height: 100%;" [class.view]="!isEdit"  *ngIf="!isEdit" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" >
+    <ng-container *ngIf="baseView.includes(itemData?.fieldType)">
+      <span>{{getValue() ? getValue() : '-'}}</span>
+    </ng-container>
+    <ng-container *ngIf="itemData?.fieldType === 'boolean'">
+      <nz-badge  [nzStatus]="getValue() ? 'success' : 'error'" [nzText]="getValue() ? '是' : '否'"></nz-badge>
+    </ng-container>
+    <ng-container *ngIf="itemData?.fieldType === 'progress'">
+      <nz-progress nzSize="small" [nzPercent]="getValue()" [nzSteps]="10" nzStrokeColor="#1890ff"></nz-progress>
+    </ng-container>
+  </div>
+
+ <!--  加载编辑组件-->
   <ng-template appViewRef></ng-template>
-  <button *ngIf="isEdit" (click)="submit()">提交</button>
+  <!-- hover icon -->
+  <span style="box-sizing: border-box; height: 100%; padding: 0px 4px;" class="edit-icon" *ngIf="isHover && !isEdit"><i nz-icon nzType="edit" nzTheme="outline"></i></span>
+
+   <!-- 提交按钮-->
+  <span style="box-sizing: border-box; height: 100%; padding: 0px 4px;" class="edit-confirm" *ngIf="isEdit && itemData?.fieldType !== 'boolean'" (click)="submit(); $event.stopPropagation();">
+    <i nz-icon nzType="check" [nzSpin]="loading" nzTheme="outline"></i>
+  </span>
 </div>
