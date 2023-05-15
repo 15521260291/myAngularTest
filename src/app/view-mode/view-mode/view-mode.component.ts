@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {ViewRefDirective} from "../../directives/view-ref.directive";
 import {GetDataService} from "../../services/getData.service";
 import {componentMap} from "../../componentMap";
@@ -35,12 +35,13 @@ export class ViewModeComponent implements OnInit, OnChanges {
 
 
   constructor(
+    private elementRef: ElementRef<HTMLElement>,
     private getDataService: GetDataService,
     private message: NzMessageService
   ) { }
 
   ngOnInit(): void {
-
+    // console.log('elemenRef', this.elementRef);
   }
 
   getValue(): string |  number  {
@@ -92,7 +93,7 @@ export class ViewModeComponent implements OnInit, OnChanges {
     this.component.instance.init(this.itemData);
 
     const callBack = (e:any) => {
-      // console.log(document.activeElement, e.target, e.target.classList, e.target.tagName, '0000')
+      console.log(document.activeElement, e.target, e.target.classList, e.target.tagName, '0000')
       if(this.itemData.fieldType !== 'boolean'){
         // 非boolean类型需要判断失去焦点后才提交
         if(!this.containerRef.nativeElement.contains(document.activeElement) && !e.target.classList.contains('ant-select-item-option-content')){
@@ -108,6 +109,8 @@ export class ViewModeComponent implements OnInit, OnChanges {
     setTimeout(() => {
       document.addEventListener('click', callBack)
     })
+
+    // document.addEventListener('click', callBack)
 
   }
 

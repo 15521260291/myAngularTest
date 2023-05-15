@@ -9,7 +9,7 @@ export class ViewRefDirective {
     public viewContainerRef: ViewContainerRef,
     public el: ElementRef
   ) {
-    console.log('66', this.el);
+    console.log('66', this.el, this.viewContainerRef);
 
   }
 

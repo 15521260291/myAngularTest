@@ -22,7 +22,6 @@ export class BaseComponent{
          this.submitValue = value;
        }
      }
-
    }
 
    public modelChange(value: any): void{
@@ -45,12 +44,14 @@ export class BaseComponent{
        if(item.dataSet){
          this.options = item.dataSet;
        }else if(item.url){
+         // 需要await
          this.options = [];
        }
      }else if(item.fieldType === 'option-multiple'){
        if(item.dataSet){
          this.options = item.dataSet;
        }else if(item.url){
+         // 需要await
          this.options = [];
        }
      }
