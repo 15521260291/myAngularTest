@@ -9,7 +9,7 @@ export class BaseComponent{
    public submitValue: any = null;
 
    setSubmitValue(value: any): void{
-     if(!value){
+     if(value == null){
        this.submitValue = null;
      }else{
        if(this.item.fieldType === 'text'){
