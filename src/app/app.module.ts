@@ -29,6 +29,17 @@ import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { DrawerComponentComponent } from './drawer-component/drawer-component.component';
 import {NzInputModule} from "ng-zorro-antd/input";
+import { SingleFieldComponent } from './single-field/single-field.component';
+import { EditAddDirective } from './directives/edit-add.directive';
+import { ViewAddDirective } from './directives/view-add.directive';
+import { TextContentComponent } from './single-field/show-content/text-content/text-content.component';
+import { SelectOption2Component } from './single-field/dynamicComponent2/select-option2/select-option2.component';
+import { SelectOptionMultiple2Component } from './single-field/dynamicComponent2/select-option-multiple2/select-option-multiple2.component';
+import { InputTextComponent } from './single-field/dynamicComponent2/input-text/input-text.component';
+import { Boolean2Component } from './single-field/dynamicComponent2/boolean2/boolean2.component';
+import { Progress2Component } from './single-field/dynamicComponent2/progress2/progress2.component';
+import { BooleanContentComponent } from './single-field/show-content/boolean-content/boolean-content.component';
+import { ProgressContentComponent } from './single-field/show-content/progress-content/progress-content.component';
 
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
@@ -46,7 +57,18 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     SelectOptionMultipleComponent,
     BooleanComponentComponent,
     ProgressComponentComponent,
-    DrawerComponentComponent
+    DrawerComponentComponent,
+    SingleFieldComponent,
+    EditAddDirective,
+    ViewAddDirective,
+    TextContentComponent,
+    SelectOption2Component,
+    SelectOptionMultiple2Component,
+    InputTextComponent,
+    Boolean2Component,
+    Progress2Component,
+    BooleanContentComponent,
+    ProgressContentComponent
   ],
   imports: [
     BrowserModule,

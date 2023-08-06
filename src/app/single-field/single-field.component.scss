@@ -1,0 +1,13 @@
+.view:hover{
+  .edit-icon{
+    display: inline-block;
+  }
+}
+
+.view{
+  display: flex;
+}
+
+.view .edit-icon{
+  display: none;
+}

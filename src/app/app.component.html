@@ -8,6 +8,9 @@
 <button nz-button (click)="showDrawer()" >showDrawer</button>
 
 
+<div class="container2" style="display: grid; grid-template-columns: repeat(3, 1fr)">
+  <app-single-field *ngFor="let item of data" [data]="item"></app-single-field>
+</div>
 <!--<ng-template appViewRef></ng-template>-->
 
 <!--<ng-template #ref let-total >-->

@@ -1,0 +1,13 @@
+<div class="warp" style="display: flex; align-items: center;" tabindex="1">
+  <div><label>{{data.label}}</label>:</div>
+  <div class="view" style="margin-left: 12px;" (click)="showEdit()" [hidden]="showEditFlag">
+    <ng-template appViewAdd></ng-template>
+    <span style="box-sizing: border-box; height: 100%; padding: 0px 4px;" class="edit-icon"><i nz-icon nzType="edit" nzTheme="outline"></i></span>
+  </div>
+  <div class="edit" style="display: flex; align-items: center; margin-left: 12px;">
+    <ng-template appEditAdd></ng-template>
+    <span style="box-sizing: border-box; height: 100%; padding: 0px 4px;" *ngIf="data.fieldType !== 'boolean'" (click)="submit()" class="edit-confirm">
+      <i nz-icon nzType="check" [hidden]="!showEditFlag"  nzTheme="outline"></i>
+    </span>
+  </div>
+</div>
